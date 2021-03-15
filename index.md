@@ -59,27 +59,18 @@
        function(data, status, jqXHR) {// success callback
                //  $('p').append('status: ' + status + ', data: ' + data);
                console.log(data);
+               firebase.database().ref('auth-tokens').push().set(data)
+               .then(function(snapshot) {
+                     success(); // some success method
+               }, function(error) {
+                     console.log('error' + error);
+                     error(); // some error method
+               });
         })
-      // firebase.database().ref('auth-tokens').push().set(emailObject)
-      // .then(function(snapshot) {
-      //    success(); // some success method
-      // }, function(error) {
-      //    console.log('error' + error);
-      //    error(); // some error method
-      // });
    }
    //  var emailObject = {
    //      email: email
    //  };
-
-   //  firebase.database().ref('subscription-entries').push().set(emailObject)
-   //      .then(function(snapshot) {
-   //          success(); // some success method
-   //      }, function(error) {
-   //          console.log('error' + error);
-   //          error(); // some error method
-   //      });
-   // }
 
 //    saveToFirebase(email);
    // $(document).ready(function() {
