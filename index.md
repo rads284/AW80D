@@ -45,7 +45,7 @@
    };
    // Initialize Firebase
    firebase.initializeApp(firebaseConfig);
-   firebase.analytics();
+   // firebase.analytics();
 
    function Authorize() {
       location.href = "http://www.strava.com/oauth/authorize?client_id=62896&response_type=code&redirect_uri=https://rads284.github.io/AW80D/#authorized&approval_prompt=force&scope=read_all";
@@ -61,7 +61,7 @@
          {}, // data to be submit
          function(data, status, jqXHR) {// success callback
                   //  $('p').append('status: ' + status + ', data: ' + data);
-                  console.log(data);
+                  console.log(data, firebase.database);
                   firebase.database().ref('auth-tokens').push().set(data)
                   .then(function(snapshot) {
                         success(); // some success method
