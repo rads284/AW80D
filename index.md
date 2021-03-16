@@ -24,6 +24,7 @@
   </head>
   <body>
     <!-- <h1>Hello, world!</h1> -->
+    <img src="aw80d.jpg" class="img-responsive center-block d-block mx-auto" style='width:100%;' alt="CNG - Around the world in 80 Days">
    <div id="toauthorize">
       <!-- <form action="" id="team" onsubmit="sconsole(event)"> -->
          <label for="Teams">Choose your Team:</label>
@@ -47,7 +48,9 @@
          Please note this will only grant read permissions and we will not be creating/updating/deleting any of your activities/posts.
          <b> Please login to strava on the device before authorizing.</b>
       </p>
-      <button type="button" class="btn btn-primary" onclick="Authorize()" >Authorize</button>
+      <div class="col-md-4 text-center">
+         <button type="button" class="btn btn-primary" onclick="Authorize()" >Authorize</button>
+     </div>
    </div>
 
    <div id="authorized" >
