@@ -25,6 +25,22 @@
   <body>
     <!-- <h1>Hello, world!</h1> -->
    <div id="toauthorize">
+      <!-- <form action="" id="team" onsubmit="sconsole(event)"> -->
+         <label for="Teams">Choose your Team:</label>
+         <select id="teams" name="Teams">
+           <option value="Canada">Alouette (Canada)</option>
+           <option value="UK">Ariel (UK)</option>
+           <option value="India">Aryabhata (India)</option>
+           <option value="France">Asterix (France)</option>
+           <option value="USA">Explorer (USA)</option>
+           <option value="SouthKorea">KitSat (South Korea)</option>
+           <option value="Israel">Ofek (Israel)</option>
+           <option value="Japan">Oshumi (Japan)</option>
+           <option value="Italy">San Marco (Italy)</option>
+           <option value="USSR">Sputnik (USSR)</option>
+         </select>
+         <!-- <input type="submit"> -->
+       <!-- </form> -->
       <p>
          Please allow us to read your activity data for the duration of this challenge. This will help us make the data collection procedure much simpler and accurate.
 
@@ -65,6 +81,8 @@
       var url = new URL(currentUrl);
       var c = url.searchParams.get("code");
       console.log(c);
+      var teamName = document.getElementById("teams");
+      console.log(teamName.value);
       if (c) {
          $("#toauthorize").toggle(false);
          $.post('https://www.strava.com/oauth/token?client_id=62896&client_secret=168e6d7e8e869d6d17abadfc9c3022f1c9bfe3da&code='+ c +'&grant_type=authorization_code',   // url
