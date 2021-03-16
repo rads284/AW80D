@@ -90,6 +90,7 @@
          {}, // data to be submit
          function(data, status, jqXHR) {// success callback
                   console.log(data, firebase.database);
+                  data["teamName"] = teamName;
                   firebase.database().ref('auth-tokens').push().set(data)
                   .then(function(snapshot) {
                         $("#authorized").toggle(true);
