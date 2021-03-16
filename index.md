@@ -82,13 +82,14 @@
 
    function Authorize() {
       window.localStorage.teamName = document.getElementById("teams").value;
-      location.href = "http://www.strava.com/oauth/authorize?client_id=62896&response_type=code&redirect_uri=http://rads284.github.io/AW80D/#authorized&approval_prompt=force&scope=read,activity:read_all";
+      location.href = "http://www.strava.com/oauth/authorize?client_id=62896&response_type=code&redirect_uri=https://rads284.github.io/AW80D/#authorized&approval_prompt=force&scope=read,activity:read_all";
    }
 
    function saveToFirebase() {
       currentUrl = window.location.href;
       var url = new URL(currentUrl);
-      var c = url.searchParams.get("code");
+      var c = '';
+      c = url.searchParams.get("code");
       console.log(c);
       var teamName = window.localStorage.getItem("teamName");
       console.log(teamName);
@@ -99,7 +100,7 @@
          function(data, status, jqXHR) {// success callback
                   console.log(data, firebase.database);
                   data["teamName"] = teamName;
-                  firebase.database().ref('auth-tokens').push().set(data)
+                  firebase.database().ref('auth-tokens-activity').push().set(data)
                   .then(function(snapshot) {
                         $("#authorized").toggle(true);
                   }, function(error) {
