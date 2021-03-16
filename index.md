@@ -24,7 +24,7 @@
   </head>
   <body>
     <!-- <h1>Hello, world!</h1> -->
-    <img src="aw80d.jpg" class="img-responsive center-block d-block mx-auto" style='width:100%;' alt="CNG - Around the world in 80 Days">
+    <img src="aw80d.jpg" class="img-responsive center-block d-block mx-auto" style='max-width: 500px; width:100%;' alt="CNG - Around the world in 80 Days">
    <div id="toauthorize">
       <!-- <form action="" id="team" onsubmit="sconsole(event)"> -->
          <label for="Teams">Choose your Team:</label>
