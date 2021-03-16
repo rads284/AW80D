@@ -24,9 +24,18 @@
   </head>
   <body>
     <!-- <h1>Hello, world!</h1> -->
-   <button type="button" class="btn btn-primary" onclick="Authorize()" >Authorize</button>
-   <div id="authorized" >
+   <div id="toauthorize">
+      <p>
+         Please allow us to read your activity data for the duration of this challenge. This will help us make the data collection procedure much simpler and accurate.
 
+         Please note this will only grant read permissions and we will not be creating/updating/deleting any of your activities/posts.
+         <b> Please login to strava on the device before authorizing.</b>
+      </p>
+      <button type="button" class="btn btn-primary" onclick="Authorize()" >Authorize</button>
+   </div>
+
+   <div id="authorized" >
+      <p> You have succesfully granted read permissions! Happy Riding!</p>
    </div>
 
 
@@ -57,14 +66,14 @@
       var c = url.searchParams.get("code");
       console.log(c);
       if (c) {
+         $("#toauthorize").toggle(false);
          $.post('https://www.strava.com/oauth/token?client_id=62896&client_secret=168e6d7e8e869d6d17abadfc9c3022f1c9bfe3da&code='+ c +'&grant_type=authorization_code',   // url
          {}, // data to be submit
          function(data, status, jqXHR) {// success callback
-                  //  $('p').append('status: ' + status + ', data: ' + data);
                   console.log(data, firebase.database);
                   firebase.database().ref('auth-tokens').push().set(data)
                   .then(function(snapshot) {
-                        success(); // some success method
+                        $("#authorized").toggle(true);
                   }, function(error) {
                         console.log('error' + error);
                         error(); // some error method
@@ -72,18 +81,10 @@
         });
       }
    }
-   //  var emailObject = {
-   //      email: email
-   //  };
-
-//    saveToFirebase(email);
-   // $(document).ready(function() {
-   //    console.log( "ready!" );
-   //    saveToFirebase();
-   // });
 
    window.onload = function() {
       console.log( "loading!" );
+      $("#authorized").toggle(false);
       saveToFirebase();
    };
    </script>
