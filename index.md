@@ -82,8 +82,8 @@
       var url = new URL(currentUrl);
       var c = url.searchParams.get("code");
       console.log(c);
-      var teamName = window.localStorage.teamName;
-      console.log(teamName.value);
+      var teamName = window.localStorage.getItem("teamName");
+      console.log(teamName);
       if (c) {
          $("#toauthorize").toggle(false);
          $.post('https://www.strava.com/oauth/token?client_id=62896&client_secret=168e6d7e8e869d6d17abadfc9c3022f1c9bfe3da&code='+ c +'&grant_type=authorization_code',   // url
