@@ -48,9 +48,14 @@
          Please note this will only grant read permissions and we will not be creating/updating/deleting any of your activities/posts.
          <b> Please login to strava on the device before authorizing.</b>
       </p>
-      <div class="col-md-4 text-center">
-         <button type="button" class="btn btn-primary" onclick="Authorize()" >Authorize</button>
-     </div>
+     <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <!-- <button class="btn btn-default">Centered button</button> -->
+          <button type="button" class="btn btn-primary" onclick="Authorize()" >Authorize</button>
+        </div>
+      </div>
+    </div>
    </div>
 
    <div id="authorized" >
