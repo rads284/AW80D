@@ -82,7 +82,7 @@
 
    function Authorize() {
       window.localStorage.teamName = document.getElementById("teams").value;
-      location.href = "http://www.strava.com/oauth/authorize?client_id=62896&response_type=code&redirect_uri=https://rads284.github.io/AW80D/#authorized&approval_prompt=force&scope=read,activity:read_all";
+      location.href = "http://www.strava.com/oauth/authorize?client_id=62896&response_type=code&redirect_uri=http://rads284.github.io/AW80D&approval_prompt=force&scope=activity:read_all";
    }
 
    function saveToFirebase() {
