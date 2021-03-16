@@ -73,6 +73,7 @@
    // firebase.analytics();
 
    function Authorize() {
+      window.localStorage.teamName = document.getElementById("teams").value;
       location.href = "http://www.strava.com/oauth/authorize?client_id=62896&response_type=code&redirect_uri=https://rads284.github.io/AW80D/#authorized&approval_prompt=force&scope=read_all";
    }
 
@@ -81,7 +82,7 @@
       var url = new URL(currentUrl);
       var c = url.searchParams.get("code");
       console.log(c);
-      var teamName = document.getElementById("teams");
+      var teamName = window.localStorage.teamName;
       console.log(teamName.value);
       if (c) {
          $("#toauthorize").toggle(false);
